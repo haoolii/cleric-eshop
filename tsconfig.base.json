@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@cleric-eshop/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@cleric-eshop/material": ["libs/material/src/index.ts"]
+      "@cleric-eshop/material": ["libs/material/src/index.ts"],
+      "@cleric-eshop/client-ui": ["libs/client-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
