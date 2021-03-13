@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/client',
     '<rootDir>/apps/api',
     '<rootDir>/apps/admin',
+    '<rootDir>/libs/material',
   ],
 };

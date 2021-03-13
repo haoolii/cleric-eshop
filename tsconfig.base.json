@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cleric-eshop/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@cleric-eshop/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@cleric-eshop/material": ["libs/material/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
