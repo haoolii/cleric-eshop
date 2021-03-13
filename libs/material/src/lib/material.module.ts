@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+/**
+ * NgModule that includes all Material modules.
+*/
 @NgModule({
-  imports: [CommonModule],
+  exports: [
+    BrowserAnimationsModule
+  ]
 })
 export class MaterialModule {}
