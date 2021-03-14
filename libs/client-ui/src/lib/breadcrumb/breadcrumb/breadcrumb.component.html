@@ -1,2 +1,19 @@
 <ng-content></ng-content>
-
+<div *ngIf="breadcrumbs.length" class="breadcrumb-trail breadcrumbs">
+  <ul class="trail-items breadcrumb">
+    <li
+      *ngFor="let breadcrumb of breadcrumbs; let i = index;"
+      class="trail-item"
+      [class.train-begin]="i === 0"
+      [class.train-end]="i === breadcrumbs.length - 1"
+      [class.active]="i === breadcrumbs.length - 1"
+    >
+      <ng-container *ngIf="i !== breadcrumbs.length - 1; else textTpl">
+        <a [attr.href]="breadcrumb.url" (click)="navigate(breadcrumb.url, $event)" >{{ breadcrumb.label }}</a>
+      </ng-container>
+      <ng-template #textTpl>
+        {{ breadcrumb.label }}
+      </ng-template>
+    </li>
+  </ul>
+</div>

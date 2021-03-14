@@ -5,3 +5,4 @@ export * from './login/login.component';
 export * from './contact/contact.component';
 export * from './cart/cart.component';
 export * from './products/products.component';
+export * from './main-content/main-content.component';
