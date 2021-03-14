@@ -23,6 +23,8 @@
     "admin": { "tags": [] },
     "admin-e2e": { "tags": [], "implicitDependencies": ["admin"] },
     "material": { "tags": [] },
-    "client-ui": { "tags": [] }
+    "client-ui": { "tags": [] },
+    "client-data": { "tags": [] },
+    "client-state": { "tags": [] }
   }
 }

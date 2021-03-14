@@ -5,5 +5,7 @@ module.exports = {
     '<rootDir>/apps/admin',
     '<rootDir>/libs/material',
     '<rootDir>/libs/client-ui',
+    '<rootDir>/libs/client-data',
+    '<rootDir>/libs/client-state',
   ],
 };

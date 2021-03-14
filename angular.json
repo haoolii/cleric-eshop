@@ -410,6 +410,58 @@
           }
         }
       }
+    },
+    "client-data": {
+      "projectType": "library",
+      "root": "libs/client-data",
+      "sourceRoot": "libs/client-data/src",
+      "prefix": "cleric-eshop",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/client-data/tsconfig.lib.json",
+              "libs/client-data/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/client-data/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/client-data"],
+          "options": {
+            "jestConfig": "libs/client-data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "client-state": {
+      "projectType": "library",
+      "root": "libs/client-state",
+      "sourceRoot": "libs/client-state/src",
+      "prefix": "cleric-eshop",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/client-state/tsconfig.lib.json",
+              "libs/client-state/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/client-state/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/client-state"],
+          "options": {
+            "jestConfig": "libs/client-state/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
