@@ -402,7 +402,7 @@
               class="cleric-clone-mobile-menu cleric-nav main-menu"
               id="menu-main-menu"
             >
-              <li class="menu-item menu-item-has-children">
+              <!-- <li class="menu-item menu-item-has-children">
                 <a href="index.html" class="cleric-menu-item-title" title="Home"
                   >Home</a
                 >
@@ -557,6 +557,24 @@
                     </ul>
                   </li>
                 </ul>
+              </li> -->
+              <li class="menu-item">
+                <a
+                  [routerLink]="['.']"
+                  routerLinkActive="router-link-active"
+                  class="cleric-menu-item-title"
+                  title="Home"
+                  >Home</a
+                >
+              </li>
+              <li class="menu-item">
+                <a
+                  [routerLink]="['products']"
+                  routerLinkActive="router-link-active"
+                  class="cleric-menu-item-title"
+                  title="Product"
+                  >Product</a
+                >
               </li>
               <li class="menu-item">
                 <a
