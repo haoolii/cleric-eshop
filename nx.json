@@ -25,6 +25,7 @@
     "material": { "tags": [] },
     "client-ui": { "tags": [] },
     "client-data": { "tags": [] },
-    "client-state": { "tags": [] }
+    "client-state": { "tags": [] },
+    "ng-zorro": { "tags": [] }
   }
 }
