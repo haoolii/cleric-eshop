@@ -462,6 +462,32 @@
           }
         }
       }
+    },
+    "ng-zorro": {
+      "projectType": "library",
+      "root": "libs/ng-zorro",
+      "sourceRoot": "libs/ng-zorro/src",
+      "prefix": "cleric-eshop",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ng-zorro/tsconfig.lib.json",
+              "libs/ng-zorro/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ng-zorro/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng-zorro"],
+          "options": {
+            "jestConfig": "libs/ng-zorro/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
