@@ -1,37 +1,107 @@
 <nz-layout>
-  <nz-header>
-    <div class="logo"></div>
-    <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
-      <li nz-menu-item nzSelected>nav 1</li>
-      <li nz-menu-item>nav 2</li>
-      <li nz-menu-item>nav 3</li>
-    </ul>
+  <nz-header
+    class="ant-header-custom"
+    [class.ant-header-menu-handset]="isHandset$ | async"
+  >
+    <div class="ant-header-custom-logo logo"></div>
+    <div class="ant-header-custom-nav">
+      <ul
+        *ngIf="!(isHandset$ | async)"
+        nz-menu
+        nzTheme="light"
+        nzMode="horizontal"
+        class="header-menu"
+      >
+        <li nz-menu-item nzSelected>nav 1</li>
+        <li nz-menu-item>nav 2</li>
+        <li nz-menu-item>nav 3</li>
+      </ul>
+    </div>
+    <div style="margin-right: auto"></div>
+    <div class="ant-header-custom-item">
+      <button
+        *ngIf="isHandset$ | async"
+        nz-button
+        nzType="text"
+        nz-popover
+        [(nzPopoverVisible)]="visible"
+        (nzPopoverVisibleChange)="change($event)"
+        nzPopoverTrigger="click"
+        [nzPopoverContent]="contentTemplate"
+        nzPopoverOverlayClassName="ant-header-menu-custom"
+        nzPopoverPlacement="leftTop"
+      >
+        <i nz-icon nzType="unordered-list" nzTheme="outline"></i>
+      </button>
+      <ng-template #contentTemplate>
+        <ul nz-menu nzMode="inline">
+          <li nz-menu-item nzSelected>1st menu item</li>
+          <li nz-menu-item>2nd menu item</li>
+          <li nz-menu-divider></li>
+          <li nz-menu-item>disabled menu item</li>
+        </ul>
+      </ng-template>
+    </div>
+    <div class="ant-header-custom-userinfo" *ngIf="!(isHandset$ | async)">
+      <i
+        style="cursor: pointer"
+        nz-icon
+        nzType="user"
+        nzTheme="outline"
+        nz-dropdown
+        nzTrigger="click"
+      >
+      </i>
+      <span>UserNaem</span>
+    </div>
   </nz-header>
-  <nz-layout>
-    <nz-sider nzWidth="200px" nzTheme="light">
-      <ul nz-menu nzMode="inline" class="sider-menu">
-        <li nz-submenu nzOpen nzIcon="user" nzTitle="subnav 1">
+  <nz-layout style="padding-top: 40px">
+    <nz-sider
+      nzCollapsible
+      nzBreakpoint="lg"
+      [nzCollapsedWidth]="0"
+      nzTheme="light"
+    >
+      <ul nz-menu nzMode="inline" style="height: 100%">
+        <li nz-submenu nzTitle="Navigation One" nzIcon="mail" nzOpen>
           <ul>
-            <li nz-menu-item nzSelected>option1</li>
-            <li nz-menu-item>option2</li>
-            <li nz-menu-item>option3</li>
-            <li nz-menu-item>option4</li>
+            <li nz-menu-group nzTitle="Item 1">
+              <ul>
+                <li nz-menu-item nzSelected>Option 1</li>
+                <li nz-menu-item>Option 2</li>
+              </ul>
+            </li>
+            <li nz-menu-group nzTitle="Item 2">
+              <ul>
+                <li nz-menu-item>Option 3</li>
+                <li nz-menu-item>Option 4</li>
+              </ul>
+            </li>
           </ul>
         </li>
-        <li nz-submenu nzTitle="subnav 2" nzIcon="laptop">
+        <li nz-submenu nzTitle="Navigation Two" nzIcon="appstore">
           <ul>
-            <li nz-menu-item>option5</li>
-            <li nz-menu-item>option6</li>
-            <li nz-menu-item>option7</li>
-            <li nz-menu-item>option8</li>
+            <li nz-menu-item>Option 5</li>
+            <li nz-menu-item>Option 6</li>
+            <li nz-submenu nzTitle="Submenu">
+              <ul>
+                <li nz-menu-item>Option 7</li>
+                <li nz-menu-item>Option 8</li>
+                <li nz-submenu nzTitle="Submenu">
+                  <ul>
+                    <li nz-menu-item>Option 9</li>
+                    <li nz-menu-item>Option 10</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
           </ul>
         </li>
-        <li nz-submenu nzTitle="subnav 3" nzIcon="notification">
+        <li nz-submenu nzTitle="Navigation Three" nzIcon="setting">
           <ul>
-            <li nz-menu-item>option9</li>
-            <li nz-menu-item>option10</li>
-            <li nz-menu-item>option11</li>
-            <li nz-menu-item>option12</li>
+            <li nz-menu-item>Option 11</li>
+            <li nz-menu-item>Option 12</li>
+            <li nz-menu-item>Option 13</li>
           </ul>
         </li>
       </ul>

@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { NgZorroModule } from '@cleric-eshop/ng-zorro';
-
+import { LayoutModule } from '@angular/cdk/layout';
 
 registerLocaleData(zh);
 
@@ -26,7 +26,8 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    NgZorroModule
+    NgZorroModule,
+    LayoutModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_TW }],
   bootstrap: [AppComponent],
