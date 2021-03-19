@@ -26,6 +26,7 @@
     "client-ui": { "tags": [] },
     "client-data": { "tags": [] },
     "client-state": { "tags": [] },
-    "ng-zorro": { "tags": [] }
+    "ng-zorro": { "tags": [] },
+    "admin-ui": { "tags": [] }
   }
 }

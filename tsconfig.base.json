@@ -20,7 +20,8 @@
       "@cleric-eshop/client-ui": ["libs/client-ui/src/index.ts"],
       "@cleric-eshop/client-data": ["libs/client-data/src/index.ts"],
       "@cleric-eshop/client-state": ["libs/client-state/src/index.ts"],
-      "@cleric-eshop/ng-zorro": ["libs/ng-zorro/src/index.ts"]
+      "@cleric-eshop/ng-zorro": ["libs/ng-zorro/src/index.ts"],
+      "@cleric-eshop/admin-ui": ["libs/admin-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

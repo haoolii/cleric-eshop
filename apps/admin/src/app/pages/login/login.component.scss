@@ -1,0 +1,38 @@
+.logo {
+  width: 100%;
+  min-height: 80px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  float: left;
+}
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-card {
+  width: 68%;
+  max-width: 600px;
+
+  &-handset {
+    width: 100%;
+  }
+}
+
+.login-form {
+  width: 100%;
+}
+
+.login-form-margin {
+  margin-bottom: 16px;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}

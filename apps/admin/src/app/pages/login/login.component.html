@@ -1,0 +1,31 @@
+<div class="login">
+  <nz-card class="login-card" [nzBordered]="true" [class.login-card-handset]="breakPointFacadeSvc.isHandset$ | async">
+    <div nz-row [nzGutter]="[24, 24]">
+      <div nz-col [nzSpan]="24" [nzMd]="12">
+        <div class="logo">
+        </div>
+      </div>
+      <div nz-col [nzSpan]="24" [nzMd]="12">
+        <div nz-row nzJustify="center">
+          <form nz-col nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="請輸入使用者名稱！">
+                <nz-input-group nzPrefixIcon="user">
+                  <input type="text" nz-input formControlName="userName" placeholder="使用者名稱" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="請輸入使用者密碼！">
+                <nz-input-group nzPrefixIcon="lock">
+                  <input type="password" nz-input formControlName="password" placeholder="使用者密碼" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <button nz-button class="login-form-button" [nzType]="'primary'">登入</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nz-card>
+</div>

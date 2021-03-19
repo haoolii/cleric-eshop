@@ -257,7 +257,15 @@
             "polyfills": "apps/admin/src/polyfills.ts",
             "tsConfig": "apps/admin/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets", {"glob":"**/*","input":"./node_modules/@ant-design/icons-angular/src/inline-svg/","output":"/assets/"}],
+            "assets": [
+              "apps/admin/src/favicon.ico",
+              "apps/admin/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
+            ],
             "styles": [
               "libs/ng-zorro/src/theme/ng-zorro-antd.cleric.less",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -485,6 +493,32 @@
           "outputs": ["coverage/libs/ng-zorro"],
           "options": {
             "jestConfig": "libs/ng-zorro/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "admin-ui": {
+      "projectType": "library",
+      "root": "libs/admin-ui",
+      "sourceRoot": "libs/admin-ui/src",
+      "prefix": "cleric-eshop",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/admin-ui/tsconfig.lib.json",
+              "libs/admin-ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/admin-ui/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin-ui"],
+          "options": {
+            "jestConfig": "libs/admin-ui/jest.config.js",
             "passWithNoTests": true
           }
         }
