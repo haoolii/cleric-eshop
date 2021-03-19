@@ -14,9 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { NgZorroModule } from '@cleric-eshop/ng-zorro';
 import { LayoutModule } from '@angular/cdk/layout';
+import { AdminUiModule } from '@cleric-eshop/admin-ui';
 import { RootComponent } from './pages/root/root.component';
 import { LoginComponent } from './pages/login/login.component';
-import { AdminUiModule } from '@cleric-eshop/admin-ui';
 
 registerLocaleData(zh);
 

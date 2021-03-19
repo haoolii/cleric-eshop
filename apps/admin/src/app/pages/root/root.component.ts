@@ -1,8 +1,5 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { BreakpointFacadeService } from '@cleric-eshop/admin-ui';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   templateUrl: './root.component.html',
