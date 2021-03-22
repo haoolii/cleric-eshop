@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BreakpointFacadeService } from '@cleric-eshop/admin-ui';
@@ -19,7 +20,20 @@ export class LoginComponent {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
+
+    if (this.validateForm.valid) {
+      this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+        this.router.navigate([''])
+      }, 1000);
+    }
+
   }
 
-  constructor(private fb: FormBuilder, public breakPointFacadeSvc: BreakpointFacadeService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    public breakPointFacadeSvc: BreakpointFacadeService
+  ) {}
 }

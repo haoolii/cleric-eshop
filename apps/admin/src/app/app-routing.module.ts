@@ -14,15 +14,24 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
+        path: 'products',
+        loadChildren: () =>
+          import('./pages/product/product.module').then((m) => m.ProductModule),
+      },
+      {
         path: 'orders',
         loadChildren: () =>
           import('./pages/order/order.module').then((m) => m.OrderModule),
       },
       {
-        path: 'products',
+        path: '404',
         loadChildren: () =>
-          import('./pages/product/product.module').then((m) => m.ProductModule),
+          import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
       },
+      {
+         path: '**',
+         redirectTo: '/404'
+      }
     ],
   },
 ];
