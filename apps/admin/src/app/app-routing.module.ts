@@ -37,6 +37,11 @@ const routes: Routes = [
           import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
       },
       {
+        path: '',
+        redirectTo: '/products',
+        pathMatch: 'full'
+      },
+      {
          path: '**',
          redirectTo: '/404'
       }

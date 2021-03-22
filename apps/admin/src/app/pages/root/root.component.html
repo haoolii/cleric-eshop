@@ -17,6 +17,15 @@
       </i>
       <span>Admin</span>
     </div>
+
+    <a nz-button nzType="link" nz-dropdown [nzDropdownMenu]="menu" style="margin-left: 8px;">
+      <i nz-icon nzType="setting" nzTheme="outline"></i>
+    </a>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item (click)="logout()">登出</li>
+      </ul>
+    </nz-dropdown-menu>
   </nz-header>
   <nz-layout style="padding-top: 40px">
     <nz-sider

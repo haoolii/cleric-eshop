@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { BreakpointFacadeService } from '@cleric-eshop/admin-ui';
 
@@ -75,6 +76,12 @@ export class RootComponent {
     }
   ];
 
+  constructor(
+    public breakPointFacadeSvc: BreakpointFacadeService,
+    private router: Router
+  ) {}
 
-  constructor(public breakPointFacadeSvc: BreakpointFacadeService) {}
+  logout() {
+    this.router.navigate(['/login'])
+  }
 }

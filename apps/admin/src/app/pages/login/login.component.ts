@@ -35,5 +35,6 @@ export class LoginComponent {
     private fb: FormBuilder,
     private router: Router,
     public breakPointFacadeSvc: BreakpointFacadeService
-  ) {}
+  ) {
+  }
 }
