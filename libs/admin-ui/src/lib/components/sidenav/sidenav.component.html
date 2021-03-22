@@ -8,6 +8,8 @@
         [nzPaddingLeft]="menu.level * 24"
         [nzDisabled]="menu.disabled"
         [nzSelected]="menu.selected"
+        [routerLink]="menu.routerLink"
+        [nzMatchRouter]="!!menu?.routerLink"
       >
         <i nz-icon [nzType]="menu.icon" *ngIf="menu.icon"></i>
         <span>{{ menu.title }}</span>

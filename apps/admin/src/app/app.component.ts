@@ -11,16 +11,6 @@ import { map } from 'rxjs/operators';
 export class AppComponent {
   title = 'admin';
 
-  visible: boolean = false;
-
-  clickMe(): void {
-    this.visible = false;
-  }
-
-  change(value: boolean): void {
-    console.log(value);
-  }
-
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map((result) => result.matches));

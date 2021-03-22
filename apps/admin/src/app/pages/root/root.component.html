@@ -4,45 +4,8 @@
     [class.ant-header-menu-handset]="breakPointFacadeSvc.isHandset$ | async"
   >
     <div class="ant-header-custom-logo logo"></div>
-    <div class="ant-header-custom-nav">
-      <ul
-        *ngIf="!(breakPointFacadeSvc.isHandset$ | async)"
-        nz-menu
-        nzTheme="light"
-        nzMode="horizontal"
-        class="header-menu"
-      >
-        <li nz-menu-item [routerLink]="['/products']" nzMatchRouter >商品管理</li>
-        <li nz-menu-item [routerLink]="['/orders']" nzMatchRouter>訂單管理</li>
-        <li nz-menu-item [routerLink]="['/marketing']" nzMatchRouter>行銷活動</li>
-      </ul>
-    </div>
     <div style="margin-right: auto"></div>
-    <div class="ant-header-custom-item">
-      <button
-        *ngIf="breakPointFacadeSvc.isHandset$ | async"
-        nz-button
-        nzType="text"
-        nz-popover
-        [(nzPopoverVisible)]="visible"
-        (nzPopoverVisibleChange)="change($event)"
-        nzPopoverTrigger="click"
-        [nzPopoverContent]="contentTemplate"
-        nzPopoverOverlayClassName="ant-header-menu-custom"
-        nzPopoverPlacement="leftTop"
-      >
-        <i nz-icon nzType="unordered-list" nzTheme="outline"></i>
-      </button>
-      <ng-template #contentTemplate>
-        <ul nz-menu nzMode="inline">
-          <li nz-menu-item nzSelected>1st menu item</li>
-          <li nz-menu-item>2nd menu item</li>
-          <li nz-menu-divider></li>
-          <li nz-menu-item>disabled menu item</li>
-        </ul>
-      </ng-template>
-    </div>
-    <div class="ant-header-custom-userinfo" *ngIf="!(breakPointFacadeSvc.isHandset$ | async)">
+    <div class="ant-header-custom-userinfo">
       <i
         style="cursor: pointer"
         nz-icon
@@ -52,7 +15,7 @@
         nzTrigger="click"
       >
       </i>
-      <span>UserName</span>
+      <span>Admin</span>
     </div>
   </nz-header>
   <nz-layout style="padding-top: 40px">
@@ -62,56 +25,10 @@
       [nzCollapsedWidth]="0"
       nzTheme="light"
     >
-      <ul nz-menu nzMode="inline" style="height: 100%">
-        <li nz-submenu nzTitle="Navigation One" nzIcon="mail" nzOpen>
-          <ul>
-            <li nz-menu-group nzTitle="Item 1">
-              <ul>
-                <li nz-menu-item nzSelected>Option 1</li>
-                <li nz-menu-item>Option 2</li>
-              </ul>
-            </li>
-            <li nz-menu-group nzTitle="Item 2">
-              <ul>
-                <li nz-menu-item>Option 3</li>
-                <li nz-menu-item>Option 4</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li nz-submenu nzTitle="Navigation Two" nzIcon="appstore">
-          <ul>
-            <li nz-menu-item>Option 5</li>
-            <li nz-menu-item>Option 6</li>
-            <li nz-submenu nzTitle="Submenu">
-              <ul>
-                <li nz-menu-item>Option 7</li>
-                <li nz-menu-item>Option 8</li>
-                <li nz-submenu nzTitle="Submenu">
-                  <ul>
-                    <li nz-menu-item>Option 9</li>
-                    <li nz-menu-item>Option 10</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li nz-submenu nzTitle="Navigation Three" nzIcon="setting">
-          <ul>
-            <li nz-menu-item>Option 11</li>
-            <li nz-menu-item>Option 12</li>
-            <li nz-menu-item>Option 13</li>
-          </ul>
-        </li>
-      </ul>
+    <cleric-eshop-sidenav [menus]="menus"></cleric-eshop-sidenav>
     </nz-sider>
     <nz-layout class="inner-layout">
-      <nz-breadcrumb>
-        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-        <nz-breadcrumb-item>List</nz-breadcrumb-item>
-        <nz-breadcrumb-item>App</nz-breadcrumb-item>
-      </nz-breadcrumb>
+      <nz-breadcrumb [nzAutoGenerate]="true"></nz-breadcrumb>
       <nz-content>
         <router-outlet></router-outlet>
       </nz-content>
