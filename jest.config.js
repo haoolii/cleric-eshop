@@ -9,5 +9,6 @@ module.exports = {
     '<rootDir>/libs/client-state',
     '<rootDir>/libs/ng-zorro',
     '<rootDir>/libs/admin-ui',
+    '<rootDir>/libs/admin-data',
   ],
 };

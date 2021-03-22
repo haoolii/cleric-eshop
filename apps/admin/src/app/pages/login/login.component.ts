@@ -7,10 +7,11 @@ import { BreakpointFacadeService } from '@cleric-eshop/admin-ui';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  loading = false;
+
   validateForm = this.fb.group({
     userName: [null, [Validators.required]],
-    password: [null, [Validators.required]],
-    remember: [true]
+    password: [null, [Validators.required]]
   });
 
   submitForm(): void {
