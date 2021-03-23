@@ -69,6 +69,7 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzResizableModule } from 'ng-zorro-antd/resizable';
 import { NzPipesModule } from 'ng-zorro-antd/pipes';
 import { IconsProviderModule } from './icons-provider.module';
+import { NzSpaceModule } from 'ng-zorro-antd/space';
 
 @NgModule({
   exports: [
@@ -140,7 +141,8 @@ import { IconsProviderModule } from './icons-provider.module';
     NzWaveModule,
     NzResizableModule,
     NzPipesModule,
-    IconsProviderModule
+    IconsProviderModule,
+    NzSpaceModule
   ]
 })
 export class NgZorroModule {}

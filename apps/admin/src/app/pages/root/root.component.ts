@@ -73,7 +73,29 @@ export class RootComponent {
           routerLink: ['/marketing/import']
         }
       ]
-    }
+    },
+    {
+      level: 1,
+      title: '頁面編輯',
+      icon: 'edit',
+      open: true,
+      selected: false,
+      disabled: false,
+      children: [
+        {
+          level: 2,
+          title: '最新消息',
+          selected: false,
+          disabled: false
+        },
+        {
+          level: 2,
+          title: '關於我們',
+          selected: false,
+          disabled: false
+        }
+      ]
+    },
   ];
 
   constructor(

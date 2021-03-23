@@ -4,6 +4,7 @@
     [class.ant-header-menu-handset]="breakPointFacadeSvc.isHandset$ | async"
   >
     <div class="ant-header-custom-logo logo"></div>
+    <nz-breadcrumb [nzAutoGenerate]="true"></nz-breadcrumb>
     <div style="margin-right: auto"></div>
     <div class="ant-header-custom-userinfo">
       <i
@@ -17,8 +18,8 @@
       </i>
       <span>Admin</span>
     </div>
-
-    <a nz-button nzType="link" nz-dropdown [nzDropdownMenu]="menu" style="margin-left: 8px;">
+    <nz-divider nzType="vertical"></nz-divider>
+    <a nz-button nzType="link" nz-dropdown [nzDropdownMenu]="menu">
       <i nz-icon nzType="setting" nzTheme="outline"></i>
     </a>
     <nz-dropdown-menu #menu="nzDropdownMenu">
@@ -27,17 +28,17 @@
       </ul>
     </nz-dropdown-menu>
   </nz-header>
-  <nz-layout style="padding-top: 40px">
+  <nz-layout>
     <nz-sider
       nzCollapsible
       nzBreakpoint="lg"
       [nzCollapsedWidth]="0"
       nzTheme="light"
+      [nzWidth]="220"
     >
     <cleric-eshop-sidenav [menus]="menus"></cleric-eshop-sidenav>
     </nz-sider>
     <nz-layout class="inner-layout">
-      <nz-breadcrumb [nzAutoGenerate]="true"></nz-breadcrumb>
       <nz-content>
         <router-outlet></router-outlet>
       </nz-content>
