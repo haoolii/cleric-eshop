@@ -6,7 +6,7 @@ import { AuthGuard } from '@cleric-eshop/admin-ui';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent
   },
   {
     path: '',

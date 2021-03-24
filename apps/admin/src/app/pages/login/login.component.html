@@ -1,4 +1,47 @@
-<div class="login">
+<nz-layout>
+  <nz-header
+    class="ant-header-custom"
+    [class.ant-header-menu-handset]="breakPointFacadeSvc.isHandset$ | async"
+  >
+    <div class="ant-header-custom-logo logo"></div>
+  </nz-header>
+  <div class="main">
+    <nz-content>
+      <div nz-row class="h-100">
+        <div nz-col [nzSpan]="0" [nzMd]="0" [nzLg]="12" class="large-logo-container">
+          <h1>Big Logo</h1>
+        </div>
+        <div nz-col [nzSpan]="24" [nzMd]="24" [nzLg]="12">
+          <div class="login-container">
+            <nz-card class="login-card">
+              <div class="login-title">後台管理登入</div>
+              <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+                <nz-form-item>
+                  <nz-form-control nzErrorTip="請輸入使用者名稱！">
+                    <nz-input-group nzPrefixIcon="user">
+                      <input type="text" nz-input formControlName="userName" placeholder="使用者名稱" />
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control nzErrorTip="請輸入使用者密碼！">
+                    <nz-input-group nzPrefixIcon="lock">
+                      <input type="password" nz-input formControlName="password" placeholder="使用者密碼" />
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <button nz-button [nzLoading]="loading" nzSize="large" type="submit" class="login-form-button" [nzType]="'primary'">登入</button>
+              </form>
+            </nz-card>
+          </div>
+        </div>
+      </div>
+    </nz-content>
+  </div>
+</nz-layout>
+
+
+<!-- <div class="login">
   <nz-card class="login-card" [nzBordered]="true" [class.login-card-handset]="breakPointFacadeSvc.isHandset$ | async">
     <div nz-row [nzGutter]="[24, 24]">
       <div nz-col [nzSpan]="24" [nzMd]="12">
@@ -28,4 +71,4 @@
       </div>
     </div>
   </nz-card>
-</div>
+</div> -->
