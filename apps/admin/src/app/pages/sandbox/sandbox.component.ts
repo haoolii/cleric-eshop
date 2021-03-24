@@ -30102,8 +30102,10 @@ export class SandboxComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  test(list) {
-    console.log(list);
+  edit(category) {
+    console.log('edit category', category);
   }
-
+  delete(category) {
+    console.log('delete category', category);
+  }
 }

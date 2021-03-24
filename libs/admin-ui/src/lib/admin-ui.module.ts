@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@cleric-eshop/material';
 import { NgZorroModule } from '@cleric-eshop/ng-zorro';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { CategorySelectorComponent } from './components/category-selector/category-selector.component';
+import { CategorySelectorModule } from './category-selector/category-selector.module';
 
 @NgModule({
-  imports: [CommonModule, MaterialModule, NgZorroModule, RouterModule],
-  declarations: [SidenavComponent, CategorySelectorComponent],
-  exports: [CommonModule, SidenavComponent, CategorySelectorComponent]
+  imports: [CommonModule, MaterialModule, NgZorroModule, RouterModule, CategorySelectorModule],
+  declarations: [SidenavComponent],
+  exports: [CommonModule, SidenavComponent, CategorySelectorModule]
 })
 export class AdminUiModule {}

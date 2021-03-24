@@ -1,0 +1,20 @@
+<ul class="scroll-item">
+  <li
+    *ngFor="let item of list"
+    class="category-item"
+    (click)="select(item)"
+    [class.text-primary]="value?.id === item.id"
+  >
+    {{ item.display_name }}
+    <nz-space>
+      <nz-space-item *ngIf="editable">
+        <a nz-button nzSize="small" nzType="link" (click)="edit.emit(item)"><i nz-icon nzType="edit"></i></a>
+        <a nz-button nzSize="small" nzType="link" (click)="delete.emit(item)"><i nz-icon nzType="delete"></i></a>
+      </nz-space-item>
+      <nz-space-item>
+        <!-- *ngIf="item.has_active_children -->
+        <i nz-icon nzType="right" nzTheme="outline"></i>
+      </nz-space-item>
+    </nz-space>
+  </li>
+</ul>

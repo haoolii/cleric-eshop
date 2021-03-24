@@ -1,18 +1,7 @@
+import { Category } from './../category';
 import { map, filter } from 'rxjs/operators';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, combineLatest } from 'rxjs';
-
-interface Item {
-  display_name: string;
-  name: string;
-  has_active_children: boolean;
-  low_stock_value: number;
-  has_children: string;
-  is_default: number;
-  parent_id: number;
-  enable_size_chart: boolean;
-  id: number;
-}
 
 @Component({
   selector: 'cleric-eshop-category-selector',
@@ -20,41 +9,43 @@ interface Item {
   styleUrls: ['./category-selector.component.scss']
 })
 export class CategorySelectorComponent implements OnInit {
-
   @Input()
-  set data(data: Array<Item>) {
+  set data(data: Array<Category>) {
     this.data$.next(data);
   }
-  data$ = new BehaviorSubject<Array<Item>>([]);
+  data$ = new BehaviorSubject<Array<Category>>([]);
   groupLevel1$ = this.data$.pipe(
-    map(list => list.filter(item => item.parent_id === 0))
+    map(list => list.filter(category => category.parent_id === 0))
   )
-  selectedGroup1$ = new BehaviorSubject<Item>(null);
+  selectedGroup1$ = new BehaviorSubject<Category>(null);
 
   groupLevel2$ = combineLatest([this.data$, this.selectedGroup1$]).pipe(
     map(([data, selectedGroup1]) => {
       if (data.length && selectedGroup1)  {
-        return data.filter(item => item.parent_id === selectedGroup1.id);
+        return data.filter(category => category.parent_id === selectedGroup1.id);
       } else {
         return [];
       }
     })
   )
-  selectedGroup2$ = new BehaviorSubject<Item>(null);
+  selectedGroup2$ = new BehaviorSubject<Category>(null);
 
   groupLevel3$ = combineLatest([this.data$, this.selectedGroup2$]).pipe(
     map(([data, selectedGroup2]) => {
       if (data.length && selectedGroup2)  {
-        return data.filter(item => item.parent_id === selectedGroup2.id);
+        return data.filter(category => category.parent_id === selectedGroup2.id);
       } else {
         return [];
       }
     })
   )
-  selectedGroup3$ = new BehaviorSubject<Item>(null);
+  selectedGroup3$ = new BehaviorSubject<Category>(null);
 
-  @Input() ngModel: Array<Item> = [];
-  @Output() ngModelChange = new EventEmitter<Array<Item>>();
+  @Input() ngModel: Array<Category> = [];
+  @Output() ngModelChange = new EventEmitter<Array<Category>>();
+
+  @Output() edit = new EventEmitter<Category>();
+  @Output() delete = new EventEmitter<Category>();
 
   constructor() { }
 
@@ -68,18 +59,18 @@ export class CategorySelectorComponent implements OnInit {
     .subscribe(list => this.ngModelChange.emit(list))
   }
 
-  selectGroup1(item: Item): void {
-    this.selectedGroup1$.next(item);
+  selectGroup1(category: Category): void {
+    this.selectedGroup1$.next(category);
     this.selectedGroup2$.next(null);
     this.selectedGroup3$.next(null);
   }
 
-  selectGroup2(item: Item): void {
-    this.selectedGroup2$.next(item);
+  selectGroup2(category: Category): void {
+    this.selectedGroup2$.next(category);
     this.selectedGroup3$.next(null);
   }
 
-  selectGroup3(item: Item): void {
-    this.selectedGroup3$.next(item);
+  selectGroup3(category: Category): void {
+    this.selectedGroup3$.next(category);
   }
 }

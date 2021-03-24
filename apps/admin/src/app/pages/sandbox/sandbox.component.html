@@ -4,6 +4,8 @@
       <cleric-eshop-category-selector
         [(ngModel)]="category"
         [data]="data"
+        (edit)="edit($event)"
+        (delete)="delete($event)"
       >
       </cleric-eshop-category-selector>
     </nz-space-item>
