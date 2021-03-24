@@ -1,0 +1,39 @@
+
+.category-selector {
+  padding: 24px;
+  background-color: #fafafa;
+}
+
+.scroll-item {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 320px;
+  border-left: 1px solid #fff;
+  border: none;
+  overflow-y: scroll;
+}
+
+.category-list {
+  position: relative;
+  display: flex;
+  margin-top: 16px;
+  padding: 10px 0;
+  background-color: #fff;
+  transition: left .5s ease;
+  color: #666;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 32px;
+  padding: 0 16px;
+  border: 0;
+
+  &:hover {
+    cursor: pointer;
+    background: #f5f5f5;
+  }
+}

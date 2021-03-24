@@ -1,0 +1,22 @@
+<nz-card nzTitle="類別選擇">
+  <nz-space nzDirection="vertical" [nzSize]="16" style="width: 100%;">
+    <nz-space-item>
+      <cleric-eshop-category-selector
+        [(ngModel)]="category"
+        [data]="data"
+      >
+      </cleric-eshop-category-selector>
+    </nz-space-item>
+    <nz-space-item>
+      <span>目前已選擇的：</span>
+      <span class="text-primary">
+        <ng-container *ngFor="let item of category; let i = index">
+          {{ item.display_name }} {{ i === category.length - 1 ? '' : '>' }}
+        </ng-container>
+      </span>
+    </nz-space-item>
+    <nz-space-item>
+      <button nz-button nzType="primary" [nzSize]="'large'">下一步</button>
+    </nz-space-item>
+  </nz-space>
+</nz-card>

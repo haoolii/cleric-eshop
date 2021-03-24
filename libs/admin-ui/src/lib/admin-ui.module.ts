@@ -9,6 +9,6 @@ import { CategorySelectorComponent } from './components/category-selector/catego
 @NgModule({
   imports: [CommonModule, MaterialModule, NgZorroModule, RouterModule],
   declarations: [SidenavComponent, CategorySelectorComponent],
-  exports: [SidenavComponent, CategorySelectorComponent]
+  exports: [CommonModule, SidenavComponent, CategorySelectorComponent]
 })
 export class AdminUiModule {}

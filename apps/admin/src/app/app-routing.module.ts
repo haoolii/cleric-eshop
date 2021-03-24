@@ -32,6 +32,11 @@ const routes: Routes = [
           import('./pages/marketing/marketing.module').then((m) => m.MarketingModule),
       },
       {
+        path: 'sandbox',
+        loadChildren: () =>
+          import('./pages/sandbox/sandbox.module').then(m => m.SandboxModule)
+      },
+      {
         path: '404',
         loadChildren: () =>
           import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
@@ -48,6 +53,7 @@ const routes: Routes = [
     ],
   },
   { path: 'marketing', loadChildren: () => import('./pages/marketing/marketing.module').then(m => m.MarketingModule) },
+  { path: 'sandbox', loadChildren: () => import('./pages/sandbox/sandbox.module').then(m => m.SandboxModule) },
 ];
 
 @NgModule({

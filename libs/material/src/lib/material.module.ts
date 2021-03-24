@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 /**
  * NgModule that includes all Material modules
 */
 @NgModule({
   exports: [
-    BrowserAnimationsModule
+    ScrollingModule
   ]
 })
 export class MaterialModule {}

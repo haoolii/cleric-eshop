@@ -96,6 +96,15 @@ export class RootComponent {
         }
       ]
     },
+    {
+      level: 1,
+      title: 'Sandbox',
+      icon: 'tool',
+      open: true,
+      selected: false,
+      disabled: false,
+      routerLink: ['/sandbox']
+    }
   ];
 
   constructor(

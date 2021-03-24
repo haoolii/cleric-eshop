@@ -1,1 +1,43 @@
-<p>category-selector works!</p>
+<div class="category-selector">
+  <div class="search-input">
+    <nz-input-group [nzPrefix]="prefixTemplateUser">
+      <input type="text" nz-input placeholder="分類名稱" />
+    </nz-input-group>
+    <ng-template #prefixTemplateUser><i nz-icon nzType="search"></i></ng-template>
+  </div>
+  <div nz-row class="category-list">
+    <ul nz-col nzFlex="1" class="scroll-item" nzBordered nzSize="small">
+      <li
+        *ngFor="let item of groupLevel1$ | async"
+        class="category-item"
+        (click)="selectGroup1(item)"
+        [class.text-primary]="(selectedGroup1$ | async)?.id === item.id"
+      >
+        {{ item.display_name }}
+        <i nz-icon nzType="right" nzTheme="outline" *ngIf="item.has_active_children"></i>
+      </li>
+    </ul>
+    <ul nz-col nzFlex="1" class="scroll-item" nzBordered nzSize="small">
+      <li
+        *ngFor="let item of groupLevel2$ | async"
+        class="category-item"
+        (click)="selectGroup2(item)"
+        [class.text-primary]="(selectedGroup2$ | async)?.id === item.id"
+      >
+        {{ item.display_name }}
+        <i nz-icon nzType="right" nzTheme="outline" *ngIf="item.has_active_children"></i>
+      </li>
+    </ul>
+    <ul nz-col nzFlex="1" class="scroll-item" nzBordered nzSize="small">
+      <li
+        *ngFor="let item of groupLevel3$ | async"
+        class="category-item text-primary"
+        (click)="selectGroup3(item)"
+        [class.text-primary]="(selectedGroup3$ | async)?.id === item.id"
+      >
+        {{ item.display_name }}
+        <i nz-icon nzType="right" nzTheme="outline" *ngIf="item.has_active_children"></i>
+      </li>
+    </ul>
+  </div>
+</div>
