@@ -1,0 +1,28 @@
+nz-card {
+  height: 600px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+}
+
+.main {
+  width: 100%;
+}
+
+.side {
+  width: 100%;
+  padding: 40px;
+  max-width: 250px;
+}

@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
+import { SideNavStateService } from '@cleric-eshop/admin-state';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { BreakpointFacadeService } from '@cleric-eshop/admin-ui';
-
 @Component({
   templateUrl: './root.component.html',
   styleUrls: ['./root.component.scss'],
@@ -109,7 +109,8 @@ export class RootComponent {
 
   constructor(
     public breakPointFacadeSvc: BreakpointFacadeService,
-    private router: Router
+    private router: Router,
+    public sideNavStateSvc: SideNavStateService
   ) {}
 
   logout() {

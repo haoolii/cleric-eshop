@@ -35,6 +35,7 @@
       [nzCollapsedWidth]="0"
       nzTheme="light"
       [nzWidth]="220"
+      *ngIf="sideNavStateSvc.isOpen$ | async"
     >
     <cleric-eshop-sidenav [menus]="menus"></cleric-eshop-sidenav>
     </nz-sider>

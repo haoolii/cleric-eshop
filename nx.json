@@ -28,6 +28,7 @@
     "client-state": { "tags": [] },
     "ng-zorro": { "tags": [] },
     "admin-ui": { "tags": [] },
-    "admin-data": { "tags": [] }
+    "admin-data": { "tags": [] },
+    "admin-state": { "tags": [] }
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SideNavStateService } from '@cleric-eshop/admin-state';
 
 @Component({
   templateUrl: './product-detail.component.html',
@@ -6,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public sideNavStateSvc: SideNavStateService
+  ) {
+    // sideNavStateSvc.close()
+  }
 
   ngOnInit(): void {
+  }
+
+  anckorTo(): void {
   }
 
 }

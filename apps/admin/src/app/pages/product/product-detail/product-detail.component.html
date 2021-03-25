@@ -1,1 +1,55 @@
-<p>product-detail works!</p>
+<div class="wrapper">
+  <div class="container">
+    <div class="main">
+      <div nz-row [nzGutter]="[24, 24]" id="hash1">
+        <div nz-col [nzSpan]="24">
+          <nz-card nzTitle="基本資訊">
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="24" id="hash2">
+          <nz-card nzTitle="商品分類">
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="24" id="hash3">
+          <nz-card  nzTitle="銷售資訊">
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="24" id="hash4">
+          <nz-card  nzTitle="媒體管理">
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="24" id="hash5">
+          <nz-card  nzTitle="運費">
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="24" id="hash6">
+          <nz-card  nzTitle="其他">
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="24">
+          <nz-space>
+            <nz-space-item>
+              <button nz-button nzSize="large" nzType="default">取消</button>
+            </nz-space-item>
+            <nz-space-item>
+              <button nz-button nzSize="large" nzType="primary">上架</button>
+            </nz-space-item>
+            <nz-space-item>
+              <button nz-button nzSize="large" nzType="primary">更新</button>
+            </nz-space-item>
+          </nz-space>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <nz-anchor [nzOffsetTop]="40">
+        <nz-link nzHref="#hash1" nzTitle="基本資訊"></nz-link>
+        <nz-link nzHref="#hash2" nzTitle="商品分類"></nz-link>
+        <nz-link nzHref="#hash3" nzTitle="銷售資訊"></nz-link>
+        <nz-link nzHref="#hash4" nzTitle="媒體管理"></nz-link>
+        <nz-link nzHref="#hash5" nzTitle="運費"></nz-link>
+        <nz-link nzHref="#hash6" nzTitle="其他"></nz-link>
+      </nz-anchor>
+    </div>
+  </div>
+</div>

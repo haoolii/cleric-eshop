@@ -549,6 +549,32 @@
           }
         }
       }
+    },
+    "admin-state": {
+      "projectType": "library",
+      "root": "libs/admin-state",
+      "sourceRoot": "libs/admin-state/src",
+      "prefix": "cleric-eshop",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/admin-state/tsconfig.lib.json",
+              "libs/admin-state/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/admin-state/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin-state"],
+          "options": {
+            "jestConfig": "libs/admin-state/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
