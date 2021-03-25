@@ -1,62 +1,22 @@
-<div nz-row [nzGutter]="[0, 16]">
-<div nz-col [nzSpan]="24">
-  <nz-card nzTitle="商品分類管理" [nzExtra]="extraTableTpl">
-    <nz-table
-      #dynamicTable
-      [nzData]="listOfData"
-      [nzScroll]="{ x: scrollX, y: scrollY }"
-      [nzTableLayout]="'auto'"
-      [nzBordered]="true"
-      [nzSimple]="true"
-      [nzLoading]="loading"
-      [nzPaginationType]="'default'"
-      [nzPaginationPosition]="'bottom'"
-      [nzShowSizeChanger]="true"
-      [nzFrontPagination]="true"
-      [nzShowPagination]="true"
-      [nzPageSize]="20"
-      [nzSize]="'middle'"
-      (nzCurrentPageDataChange)="currentPageDataChange($event)"
-    >
-    <thead>
-      <tr>
-        <!-- <th nzWidth="80px">商品縮圖</th> -->
-        <th>分類編號</th>
-        <th>分類名稱</th>
-        <th [nzRight]="true">更新時間</th>
-        <th [nzRight]="fixedColumn">操作</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let data of dynamicTable.data">
-        <tr>
-          <!-- <td [nzAlign]="'center'">
-            <img nz-image width="50px" height="50px" nzSrc="error" [nzFallback]="fallback" alt="" />
-          </td> -->
-          <td [nzLeft]="fixedColumn">
-            123
-          </td>
-          <td>{{ data.name }}</td>
-          <td>
-            Tue, 23 Mar 2021 03:38:18 GMT
-          </td>
-          <td [nzRight]="fixedColumn">
-            <a (click)="getProdcutDetail()">細節</a>
-          </td>
-        </tr>
-        <tr [nzExpand]="data.expand">
-          <span>{{ data.description }}</span>
-        </tr>
-      </ng-container>
-    </tbody>
-    </nz-table>
-  </nz-card>
-  <ng-template #extraTableTpl>
-    <button nz-button nzType="primary">
-      <i nz-icon nzType="plus"></i>
-      新增分類
-    </button>
-  </ng-template>
-</div>
-</div>
-
+<nz-card nzTitle="商品分類管理">
+  <nz-space nzDirection="vertical" [nzSize]="16" style="width: 100%;">
+    <nz-space-item>
+      <cleric-eshop-category-selector
+        [(value)]="category"
+        [data]="data"
+        [editable]
+        (edit)="edit($event)"
+        (delete)="delete($event)"
+      >
+      </cleric-eshop-category-selector>
+    </nz-space-item>
+    <nz-space-item>
+      <span>目前已選擇的：</span>
+      <span class="text-primary">
+        <ng-container *ngFor="let item of category; let i = index">
+          {{ item.display_name }} {{ i === category.length - 1 ? '' : '>' }}
+        </ng-container>
+      </span>
+    </nz-space-item>
+  </nz-space>
+</nz-card>

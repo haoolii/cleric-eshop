@@ -9,7 +9,7 @@
     <cleric-eshop-category-scroll-item
       nz-col
       nzFlex="1"
-      [editable]="true"
+      [editable]="editable"
       [list]="groupLevel1$ | async"
       [value]="selectedGroup1$ | async"
       (valueChange)="selectedGroup1$.next($event)"
@@ -20,7 +20,7 @@
     <cleric-eshop-category-scroll-item
       nz-col
       nzFlex="1"
-      [editable]="true"
+      [editable]="editable"
       [list]="groupLevel2$ | async"
       [value]="selectedGroup2$ | async"
       (valueChange)="selectedGroup2$.next($event)"
@@ -31,7 +31,7 @@
     <cleric-eshop-category-scroll-item
       nz-col
       nzFlex="1"
-      [editable]="true"
+      [editable]="editable"
       [list]="groupLevel3$ | async"
       [value]="selectedGroup3$ | async"
       (valueChange)="selectedGroup3$.next($event)"

@@ -2,7 +2,7 @@
   <nz-space nzDirection="vertical" [nzSize]="16" style="width: 100%;">
     <nz-space-item>
       <cleric-eshop-category-selector
-        [(ngModel)]="category"
+        [(value)]="category"
         [data]="data"
         (edit)="edit($event)"
         (delete)="delete($event)"

@@ -41,8 +41,9 @@ export class CategorySelectorComponent implements OnInit {
   )
   selectedGroup3$ = new BehaviorSubject<Category>(null);
 
-  @Input() ngModel: Array<Category> = [];
-  @Output() ngModelChange = new EventEmitter<Array<Category>>();
+  @Input() editable = false;
+  @Input() value: Array<Category> = [];
+  @Output() valueChange = new EventEmitter<Array<Category>>();
 
   @Output() edit = new EventEmitter<Category>();
   @Output() delete = new EventEmitter<Category>();
@@ -56,7 +57,7 @@ export class CategorySelectorComponent implements OnInit {
       this.selectedGroup3$
     ])
     .pipe(map(list => list.filter(item => item)))
-    .subscribe(list => this.ngModelChange.emit(list))
+    .subscribe(list => this.valueChange.emit(list))
   }
 
   selectGroup1(category: Category): void {
