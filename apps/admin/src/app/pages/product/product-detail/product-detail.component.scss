@@ -1,6 +1,6 @@
-nz-card {
-  height: 600px;
-}
+// nz-card {
+//   height: 600px;
+// }
 
 .title {
   font-weight: bold;
@@ -23,6 +23,28 @@ nz-card {
 
 .side {
   width: 100%;
-  padding: 40px;
-  max-width: 250px;
+  padding: 20px;
+  max-width: 200px;
+}
+//
+.dynamic-delete-button {
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  font-size: 24px;
+  color: #999;
+  transition: all 0.3s;
+}
+
+.dynamic-delete-button:hover {
+  color: #777;
+}
+
+.dync-input {
+  width: calc(100% - 32px);
+  margin-right: 8px;
+}
+
+.add-button {
+  width: 100%;
 }

@@ -1,0 +1,18 @@
+form {
+  position: relative;
+  padding: 24px;
+  background-color: #fafafa;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  &-btns {
+    display: flex;
+    padding: 0 8px;
+  }
+}
+
+.add-button {
+  width: 100%;
+}

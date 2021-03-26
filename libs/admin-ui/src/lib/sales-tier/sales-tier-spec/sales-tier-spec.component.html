@@ -1,0 +1,54 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4">
+    商品選項名稱
+    </nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <div class="input-row">
+        <input
+          class="passenger-input"
+          nz-input
+          placeholder="輸入規格名稱，例如: 顏色。"
+          formControlName="name"
+        />
+      </div>
+    </nz-form-control>
+    <div nz-col [nzSpan]="2"></div>
+  </nz-form-item>
+
+  <ng-container formGroupName="options">
+    <nz-form-item *ngFor="let control of listOfControl; let i = index">
+      <nz-form-label [nzFor]="control.controlInstance" [nzSpan]="4" *ngIf="i === 0">
+      {{ i === 0 ? '選項' : ''}}
+      </nz-form-label>
+      <nz-form-control [nzSpan]="18" [nzOffset]="i !== 0 ? 4 : 0">
+        <div class="input-row">
+          <input
+            class="passenger-input"
+            nz-input
+            [placeholder]="i === 0 ? '輸入規格名稱，例如: 顏色。' : '輸入規格選項，例如: 紅色，白色等。'"
+            [attr.id]="control.id"
+            [formControlName]="control.controlInstance"
+          />
+        </div>
+      </nz-form-control>
+      <div nz-col [nzSpan]="2">
+        <div class="input-row-btns">
+          <a nz-button nzType="link" (click)="removeField(control, $event)"><i nz-icon nzType="delete"></i></a>
+        </div>
+      </div>
+    </nz-form-item>
+  </ng-container>
+  <nz-form-item>
+    <nz-form-control [nzSpan]="18" [nzOffset]="4">
+      <button nz-button nzType="dashed" class="add-button" (click)="addField('', $event)">
+        <i nz-icon nzType="plus"></i>
+        增加選項
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<pre>
+  {{ validateForm.value | json }}
+</pre>

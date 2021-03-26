@@ -16,6 +16,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     ProductRoutingModule,
     NgZorroModule,
     AdminUiModule

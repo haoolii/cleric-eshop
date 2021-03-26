@@ -1,0 +1,20 @@
+<nz-table #groupingTable [nzData]="listOfData" nzBordered>
+  <thead>
+    <tr>
+      <th nzAlign="center">Building</th>
+      <th nzAlign="center">Door No.</th>
+      <th nzAlign="center">價格</th>
+      <th nzAlign="center">商品數量</th>
+      <th nzAlign="center">商品選項貨號</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of groupingTable.data">
+      <td nzAlign="center">{{ data.age }}</td>
+      <td nzAlign="center">{{ data.street }}</td>
+      <td nzAlign="center">{{ data.building }}</td>
+      <td nzAlign="center">{{ data.number }}</td>
+      <td nzAlign="center">{{ data.companyAddress }}</td>
+    </tr>
+  </tbody>
+</nz-table>

@@ -4,26 +4,175 @@
       <div nz-row [nzGutter]="[24, 24]" id="hash1">
         <div nz-col [nzSpan]="24">
           <nz-card nzTitle="基本資訊">
+            <form nz-form [formGroup]="validateForm">
+              <nz-form-item>
+                <nz-form-label [nzSpan]="4" nzRequired>商品名稱</nz-form-label>
+                <nz-form-control [nzSpan]="18" nzErrorTip="Error">
+                  <input formControlName="name" nz-input placeholder="請輸入" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="4" nzRequired>商品簡述</nz-form-label>
+                <nz-form-control [nzSpan]="18" nzErrorTip="Error">
+                  <input formControlName="shortdesc" nz-input />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="4" nzRequired>商品描述</nz-form-label>
+                <nz-form-control [nzSpan]="18" nzErrorTip="Error">
+                  <nz-textarea-count [nzMaxCharacterCount]="300">
+                    <textarea rows="4" formControlName="desc" nz-input></textarea>
+                  </nz-textarea-count>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
           </nz-card>
         </div>
         <div nz-col [nzSpan]="24" id="hash2">
           <nz-card nzTitle="商品分類">
+            <form nz-form>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="4" nzRequired>主類別</nz-form-label>
+                <nz-form-control [nzSpan]="18" nzErrorTip="Error">
+                  <nz-select>
+                    <nz-option nzLabel="男生衣著" nzValue="c1"></nz-option>
+                    <nz-option nzLabel="女生衣著" nzValue="c2"></nz-option>
+                    <nz-option nzLabel="3C" nzValue="c3"></nz-option>
+                  </nz-select>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item *ngFor="let control of listOfControl; let i = index">
+                <nz-form-label [nzSpan]="4" *ngIf="i == 0" [nzFor]="control.controlInstance" nzRequired>次類別 </nz-form-label>
+                <nz-form-control
+                  [nzSpan]="18"
+                  [nzOffset]="i == 0 ? 0 : 4"
+                >
+                  <nz-select class="dync-input">
+                    <nz-option nzLabel="T恤" nzValue="c1"></nz-option>
+                    <nz-option nzLabel="長褲" nzValue="c2"></nz-option>
+                    <nz-option nzLabel="外套" nzValue="c3"></nz-option>
+                  </nz-select>
+
+                  <i nz-icon nzType="minus-circle-o" class="dynamic-delete-button"></i>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control [nzSpan]="18" [nzOffset]="4">
+                  <button nz-button nzType="dashed" class="add-button">
+                    <i nz-icon nzType="plus"></i>
+                    增加次類別
+                  </button>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
           </nz-card>
         </div>
         <div nz-col [nzSpan]="24" id="hash3">
           <nz-card  nzTitle="銷售資訊">
+            <form nz-form>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="4">規格一</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <cleric-eshop-sales-tier-spec [(spec)]="test"></cleric-eshop-sales-tier-spec>
+                  <H1>Hel</H1>
+                  <pre>
+                    {{ test | json}}
+                  </pre>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="4">規格二</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <cleric-eshop-sales-tier-spec></cleric-eshop-sales-tier-spec>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="4">規格表</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <cleric-eshop-sales-tier-grid></cleric-eshop-sales-tier-grid>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
           </nz-card>
         </div>
         <div nz-col [nzSpan]="24" id="hash4">
           <nz-card  nzTitle="媒體管理">
+            <form nz-form>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="4" nzRequired>產品主圖</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <cleric-eshop-upload></cleric-eshop-upload>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="4" nzRequired>產品副圖</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <cleric-eshop-upload></cleric-eshop-upload>
+                  <cleric-eshop-upload></cleric-eshop-upload>
+                  <cleric-eshop-upload></cleric-eshop-upload>
+                  <cleric-eshop-upload></cleric-eshop-upload>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
           </nz-card>
         </div>
         <div nz-col [nzSpan]="24" id="hash5">
-          <nz-card  nzTitle="運費">
+          <nz-card  nzTitle="配送方式">
+            <nz-list nzBordered>
+              <nz-list-item>
+                配送方式一
+                <nz-switch></nz-switch>
+              </nz-list-item>
+              <nz-list-item>
+                配送方式二
+                <nz-switch></nz-switch>
+              </nz-list-item>
+              <nz-list-item>
+                配送方式三
+                <nz-switch></nz-switch>
+              </nz-list-item>
+            </nz-list>
           </nz-card>
         </div>
         <div nz-col [nzSpan]="24" id="hash6">
-          <nz-card  nzTitle="其他">
+          <nz-card nzTitle="其他">
+            <div nz-row [nzGutter]="[16, 16]">
+              <div nz-col [nzSpan]="24">
+                <label nz-checkbox>是否為搶先預購商品</label>
+              </div>
+              <div nz-col [nzSpan]="24">
+                <nz-select
+                  style="width: 100%;"
+                  [(ngModel)]="listOfTagOptions"
+                  nzMode="tags"
+                  [nzTokenSeparators]="[',']"
+                  nzPlaceHolder="商品標籤"
+                >
+                  <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+                </nz-select>
+              </div>
+            </div>
+            <!-- <div nz-row [nzGutter]="16">
+              <div nz-col [nzSpan]="24">
+                <label nz-checkbox>是否為搶先預購商品</label>
+              </div>
+              <div nz-col [nzSpan]="24">
+                <nz-select
+                  style="width: 100%;"
+                  [(ngModel)]="listOfTagOptions"
+                  nzMode="tags"
+                  [nzTokenSeparators]="[',']"
+                  nzPlaceHolder="automatic tokenization"
+                >
+                  <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+                </nz-select>
+              </div>
+            </div> -->
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="24" id="hash6">
+          <nz-card nzTitle="相關商品">
+            <button nz-button nzSize="large" nzType="primary">新增相關商品</button>
           </nz-card>
         </div>
         <div nz-col [nzSpan]="24">
