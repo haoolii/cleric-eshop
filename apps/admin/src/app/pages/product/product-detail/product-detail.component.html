@@ -73,11 +73,7 @@
               <nz-form-item>
                 <nz-form-label [nzSpan]="4">規格一</nz-form-label>
                 <nz-form-control [nzSpan]="18">
-                  <cleric-eshop-sales-tier-spec [(spec)]="test"></cleric-eshop-sales-tier-spec>
-                  <H1>Hel</H1>
-                  <pre>
-                    {{ test | json}}
-                  </pre>
+                  <cleric-eshop-sales-tier-spec></cleric-eshop-sales-tier-spec>
                 </nz-form-control>
               </nz-form-item>
               <nz-form-item>
@@ -176,7 +172,7 @@
           </nz-card>
         </div>
         <div nz-col [nzSpan]="24">
-          <nz-space>
+          <nz-space style="display: flex; justify-content: flex-end;">
             <nz-space-item>
               <button nz-button nzSize="large" nzType="default">取消</button>
             </nz-space-item>

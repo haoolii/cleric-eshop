@@ -14,18 +14,7 @@ export interface TierSpec {
 export class SalesTierSpecComponent implements OnInit {
 
   @Input()
-  set spec(spec: TierSpec) {
-    Promise.resolve().then(() => {
-      this.validateForm.get('name').setValue(spec.name)
-      spec.options.forEach((option, index) => {
-        if (!this.options.controls[index]) {
-          this.addField(option);
-        } else{
-          this.options.controls[index].setValue(option)
-        }
-      })
-    })
-  }
+  set spec(spec: TierSpec) { }
   @Output() specChange = new EventEmitter<TierSpec>();
 
   validateForm: FormGroup = this.fb.group({
@@ -64,6 +53,7 @@ export class SalesTierSpecComponent implements OnInit {
       this.listOfControl.splice(index, 1);
       console.log(this.listOfControl);
       (this.validateForm.get('options') as FormGroup).removeControl(i.controlInstance);
+      this.specEmit();
     }
   }
 
@@ -85,5 +75,9 @@ export class SalesTierSpecComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.validateForm.get('name').valueChanges.subscribe(_ => {
+      this.specEmit();
+    })
+  }
 }
